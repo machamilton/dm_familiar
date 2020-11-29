@@ -32,16 +32,30 @@ class BuscaActivity : AppCompatActivity() {
             val textoBusca = inputBusca.text.toString().toLowerCase().replace(" ", "-")
             val retornoBusca = inputBusca.text.toString()
             var result =""
-            if (tipo != null) {
+            if (tipo == "monsters") {
                 result = fazRequest(textoBusca, tipo)
                 if (result !=null){
-                    val intent = Intent(this, DisplayActivity::class.java)
+                    val intent = Intent(this, MonstrosActivity::class.java)
                     intent.putExtra("textoTitulo", retornoBusca)
                     intent.putExtra("conteudo", result)
                     startActivity(intent)
                 }
             }
+            if(tipo == "spells"){
+                result = fazRequest(textoBusca, tipo)
+                val spell = Intent(this, SpellsActivity::class.java)
+                spell.putExtra("textoTitulo", retornoBusca)
+                spell.putExtra("conteudo", result)
+                startActivity(spell)
+            }
 
+            if(tipo == "classes"){
+                result = fazRequest(textoBusca, tipo)
+                val classe = Intent(this, SpellsActivity::class.java)
+                classe.putExtra("textoTitulo", retornoBusca)
+                classe.putExtra("conteudo", result)
+                startActivity(classe)
+            }
         }
     }
     fun fazRequest(input: String, tipoDaBusca: String): String {
