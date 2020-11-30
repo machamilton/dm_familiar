@@ -1,6 +1,7 @@
 package com.example.dmfamiliar
 
 import android.content.Intent
+import android.content.res.Resources
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.os.StrictMode
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import java.net.URL
 
 class BuscaActivity : AppCompatActivity() {
@@ -34,12 +36,10 @@ class BuscaActivity : AppCompatActivity() {
             var result =""
             if (tipo == "monsters") {
                 result = fazRequest(textoBusca, tipo)
-                if (result !=null){
-                    val intent = Intent(this, MonstrosActivity::class.java)
-                    intent.putExtra("textoTitulo", retornoBusca)
-                    intent.putExtra("conteudo", result)
-                    startActivity(intent)
-                }
+                val intent = Intent(this, MonstrosActivity::class.java)
+                intent.putExtra("textoTitulo", retornoBusca)
+                intent.putExtra("conteudo", result)
+                startActivity(intent)
             }
             if(tipo == "spells"){
                 result = fazRequest(textoBusca, tipo)
@@ -51,7 +51,7 @@ class BuscaActivity : AppCompatActivity() {
 
             if(tipo == "classes"){
                 result = fazRequest(textoBusca, tipo)
-                val classe = Intent(this, SpellsActivity::class.java)
+                val classe = Intent(this, ClassesActivity::class.java)
                 classe.putExtra("textoTitulo", retornoBusca)
                 classe.putExtra("conteudo", result)
                 startActivity(classe)
