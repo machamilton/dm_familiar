@@ -15,8 +15,8 @@ class SpellsActivity : AppCompatActivity() {
         //Variavel objeto contem os dados da requisicao realizada
         val objeto = JSONObject(conteudo)
         val nome = "Nome: " + objeto.getString("name")
-        val desc = "\n"+"Descrição: " + "\n" + objeto.getString("desc").replace(oldValue = "[", newValue = "").replace(oldValue = "[", newValue = "") + "\n"
-        val hi_lv = "\n"+"Níveis mais altos: " + "\n" + objeto.getString("higher_level").replace(oldValue = "[", newValue = "").replace(oldValue = "[", newValue = "") + "\n"
+        val desc = "\n"+"Descrição: " + "\n" + objeto.getString("desc").replace(oldValue = "[", newValue = "").replace(oldValue = "]", newValue = "") + "\n"
+        val hi_lv = "\n"+"Níveis mais altos: " + "\n" + objeto.getString("higher_level").replace(oldValue = "[", newValue = "").replace(oldValue = "]", newValue = "") + "\n"
         val range = "Alcance da magia: " + objeto.getString("range")
         val ritual = "É um ritual? "  +  objeto.getString("ritual")
         val concentration = "Precisa de concentração? " + objeto.getString("concentration")

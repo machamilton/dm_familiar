@@ -58,6 +58,7 @@ class BuscaActivity : AppCompatActivity() {
             }
         }
     }
+    //Função para fazer o request na API
     fun fazRequest(input: String, tipoDaBusca: String): String {
         val request_api = "https://www.dnd5eapi.co/api/$tipoDaBusca/$input"
         val queryResult = URL(request_api).readText()
